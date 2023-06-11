@@ -47,12 +47,7 @@ jobs:
         run: |
           ninja -v
           ninja install
-      
-      - name: zipit 
-        uses: montudor/action-zip@v1
-        with:
-            args: zip -qq -r C:/Miniconda/envs/test/test.zip C:/Miniconda/envs/test/bin
-    
+          Compress-Archive -Path C:/Miniconda/envs/test/bin/* -Destination C:/Miniconda/envs/test/test.zip    
       - name: get artifact
         uses: actions/upload-artifact@v3
         with:
