@@ -47,7 +47,6 @@ jobs:
         run: |
           ninja -v
           ninja install
-          zip -r C:/Miniconda/envs/test/test.zip C:/Miniconda/envs/test/bin
       
       - name: zipit 
         uses: montudor/action-zip@v1
