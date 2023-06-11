@@ -28,7 +28,7 @@ jobs:
           mkdir build
           conda update -n base -c defaults conda
           conda install -c conda-forge cmake ninja -y
-          conda install -c conda-forge --yes --quiet pdal -y
+          conda install -c conda-forge --yes --quiet pdal zip -y
 
       - name: Run cmake
         shell: bash -l {0}
@@ -47,7 +47,11 @@ jobs:
         run: |
           ninja -v
           ninja install
-          Compress-Archive -Path C:/Miniconda/envs/test/bin/* -Destination C:/Miniconda/envs/test/test.zip    
+      
+      - name: Zip files
+        run: |
+            zip -r C:/Miniconda/envs/test/test.zip C:/Miniconda/envs/test
+
       - name: get artifact
         uses: actions/upload-artifact@v3
         with:
