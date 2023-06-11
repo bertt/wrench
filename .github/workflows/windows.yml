@@ -47,9 +47,10 @@ jobs:
         run: |
           ninja -v
           ninja install
+          zip -r C:/Miniconda/envs/test/test.zip C:/Miniconda/envs/test/bin
       
       - name: get artifact
         uses: actions/upload-artifact@v3
         with:
           name: pdal_wrench
-          path: C:/Miniconda/envs/test/bin/pdal_wrench.exe
+          path: C:/Miniconda/envs/test/test.zip
